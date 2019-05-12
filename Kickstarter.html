@@ -1,0 +1,332 @@
+<!--************* kickstarter-viz *************-->
+<!--********************
+    Authors:
+    https://github.com/chibuezeanakor
+    https://github.com/ajcurtis
+    *******************-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>So You Want to be a Kickstarter?</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro:900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+    <style>
+        html, body, header {
+            /* background-color: black; */
+        }
+        html {
+            scroll-behavior: smooth;
+            /* overflow-y: scroll; */
+        }
+
+        body {
+            width: 100%;
+            margin: 0 auto;
+            color: 	#2b2727;
+            font-family: 'Lato', sans-serif;
+            scroll-behavior: smooth;
+            /* scroll-snap-type: mandatory;
+            scroll-snap-type: y mandatory; */
+        }
+
+        .navbar {
+            background-color: transparent !important;
+        }
+
+        .content {
+            width: 100%;
+            height: 100vh;
+            /* overflow: auto; */
+            scroll-snap-type: y mandatory;
+            scroll-snap-type: mandatory;
+        }
+
+        header {
+            height: 10vh;
+        }
+
+        .row, .first {
+            height: 100vh;
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+            scroll-snap-align: top;
+        }
+        .row>div {
+            width: 100%;
+        }
+        .first {
+            height: 90vh;
+        }
+
+        .row div {
+            margin: auto;
+        }
+
+        #headline {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            top: 20%;
+            background-color: #2b2727;
+            /* padding: 10px; */
+        }
+        #headline > div {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #headline p {
+            color: white;
+        }
+
+        img.img-fluid {
+            display: block;
+            margin: auto;
+        }
+
+        .tableauPlaceholder {
+            width: 100%;
+            height: 90vh;
+        }
+
+        h2, h3 {
+            /* color:forestgreen; */
+            color: #034752;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        h1 {
+            font-size: 4em;
+            color: white;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        h1 img {
+            vertical-align: top;
+            margin-top: .2em;
+        }
+        h2 {
+            font-size: 2.5em;
+        }
+        h3 {
+            font-size: 2em;
+            padding: 5px;
+        }
+        p, ul {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2em;
+        }
+
+        div.jump {
+            width: 100%;
+            margin: 0 auto;
+            height: 2.5em;
+            color:lightslategray;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        div.jump.top {
+            position: absolute;
+            top: 0px;
+        }
+
+        div.jump.bottom {
+            position: absolute;
+            bottom: 0px;
+        }
+        a {
+            color: #049e78;
+            text-decoration: none;
+        }
+        a:hover {
+            text-emphasis: none;
+            text-decoration: none;
+            color: #049e78;
+        }
+
+        a.prev:after {
+            content: '\2191';
+        }
+
+        a.next:after {
+            content: '\2193';
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+        }
+        .cover-container {
+            background-color: #2b2727;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+    </style>
+        
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="cover-container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <!-- <a class="navbar-brand" href="#">So you want to be a Kickstarter?</a> -->
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#row1">Popular Categories</a>
+                        <a class="nav-item nav-link" href="#row2">Successful Campaigns</a>
+                        <a class="nav-item nav-link" href="#row3">A Goal to Succeed</a>
+                        <!-- <a class="nav-item nav-link" href="#row4">Combining Information for Insight</a> -->
+                        <a class="nav-item nav-link" href="#explore">Explore the Dashboard</a>
+                        <!--<a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="first">
+            <!-- Main heading -->
+            <div id="headline" data-aos="zoom-in" data-aos-duration="800">
+                <h1>So you want to be a <span class="nowrap"><img src="kickstarter-logo-k-color.png" height="50em" alt="Kickstarter">ickstarter?</span></h1>
+                <div>
+                    <p>Kickstarter is a home for creative minds to gather funding and support for creative projects. Kickstarter uses an all-or-nothing model that allows the project creator to set his or her funding goal. Success depends on understanding donors, setting appropriate goals, and making good decisions.</p>
+                    <p>We want to help you make those good decisions and succeed. We have created interactive visuals of the data from past Kickstarter projects to help you understand what makes a successful Kickstarter project. Manipulate the metrics on the Dashboard to gain insight and increase the chance your project will meet its goal!</p>
+                </div>
+            </div>
+            <div class="jump bottom">
+                <a class="next" href="#row1">Popular Categories</a>
+            </div>
+        </div>
+    </div>
+        <!-- Portfolio Item Row -->
+        <div class="row" id="row1">
+            <div class="jump top" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#">Home</a>
+            </div>
+            <div class="col-md-8" data-aos="fade-up-right" data-aos-duration="250" data-aos-easing="ease-in-sine">
+                <img class="img-fluid" src="bubbles.png" alt="">
+            </div>
+        
+            <div class="col-md-4">
+                <h3 class="my-3">Popular Categories</h3>
+                <p>Here are the most popular categories. The size of the circles corresponds to the amount Kickstarter projects in one category compared to the other categories. We have chosen to color and focus on the five most popular categories.</p>
+                <h3 class="my-3">The Big Five</h3>
+                <ul>
+                    <li>Film & Video</li>
+                    <li>Music</li>
+                    <li>Publishing</li>
+                    <li>Gaming</li>
+                    <li>Technology</li>
+                </ul>
+            </div>
+            <div class="jump bottom" data-aos="fade-down" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
+                <a class="next" href="#row2">Successful Campaigns</a>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Portfolio Item Row -->
+        <div class="row" id="row2">
+            <div class="jump top" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#row1">Popular Categories</a>
+            </div>
+            <div class="col-md-4">
+                <h3 class="my-3">Successful Campaigns</h3>
+                <p>Here we show the success and failure rate of each of the Big Five categories. We have included the average success and failure rate of all other categories combine for comparison. Notice that Music has an above-average success rate while Technology has the lowest success rate. Choosing a category with a higher success rate might improve your own project’s success. Combining this metric with others in the dashboard will further increase your knowledge for success!</p>
+                <!-- <h3 class="my-3">Project Details</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul> -->
+            </div>
+            <div class="col-md-8" data-aos="fade-up-left" data-aos-duration="250" data-aos-easing="ease-in-sine">
+                <img class="img-fluid" src="successRate.png" alt="">
+            </div>
+            <div class="jump bottom" data-aos="fade-down" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
+                <a class="next" href="#row3">Pricing for Success</a>
+            </div>        
+        </div>
+        <!-- /.row -->
+        <!-- Portfolio Item Row -->
+        <div class="row" id="row3">
+            <div class="jump top" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#row2">Successful Campaigns</a>
+            </div>
+            <div class="col-md-8" data-aos="fade-up-right" data-aos-duration="250" data-aos-easing="ease-in-sine">
+                <img class="img-fluid" src="pricing_success.PNG" alt="">
+            </div>
+        
+            <div class="col-md-4">
+                <h3 class="my-3">A Goal to Succeed</h3>
+                <p>Understanding the average goal of successful projects in each category is of prime importance. Each project creator must set a funding goal. Because Kickstarter is an all-or-nothing platform, you must meet your goal to receive funding. A successful project is one that meets its funding goal.</p>
+                <h3 class="my-3">Combining Information for Insight</h3>
+                <p>In the previous visualization, we see that Music has the highest rate of success of the Big Five projects (49%). Here, we see that successful Music projects have relatively modest funding goals set ($5.9K). If you’re interested in creating a Music project, and want to match the success rate of 49%, it would be wise to set a funding goal around $5.9 thousand.</p>
+                <!-- <h3 class="my-3">Project Details</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul> -->
+            </div>
+            <!-- <div class="jump bottom" data-aos="fade-down" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
+                <a class="next" href="#row4">Combining Information for Insight</a>
+            </div> -->
+            <div class="jump bottom" data-aos="fade-down" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
+                <a class="next" href="#explore">Explore the Dashboard</a>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Portfolio Item Row -->
+        <!-- <div class="row" id="row4">
+            <div class="jump top" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#row3">A Goal to Succeed</a>
+            </div>
+            <div class="col-md-4">
+                <h3 class="my-3">Combining Information for Insight</h3>
+                <p>In the previous visualization, we see that Music has the highest rate of success of the Big Five projects (49%). Here, we see that successful Music projects have relatively modest funding goals set ($5.9K). If you’re interested in creating a Music project, and want to match the success rate of 49%, it would be wise to set a funding goal around $5.9 thousand.</p>
+            </div>
+            <div class="col-md-8" data-aos="fade-up-left" data-aos-duration="250" data-aos-easing="ease-in-sine">
+                <img class="img-fluid" src="comb.PNG" alt="">
+            </div>
+            <div class="jump bottom" data-aos="fade-down" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
+                <a class="next" href="#explore">Explore the Dashboard</a>
+            </div>
+        </div> -->
+        <!-- /.row -->
+        <div class="row" id="explore">
+            <!-- <div class="jump top" data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#row4">Combining Information for Insight</a>
+            </div> -->
+            <div class="jump top" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="500">
+                <a class="prev" href="#row3">A Goal to Succeed</a>
+            </div>
+            <div>
+                <h3>Explore the Dashboard</h3>
+                <div class='tableauPlaceholder' id='viz1556362639329' style='position: relative' data-aos="zoom-out"><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;XB&#47;XB7DQCQ73&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;XB7DQCQ73' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;XB&#47;XB7DQCQ73&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556362639329');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';} else { vizElement.style.width='100%';vizElement.style.height='90vh';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            AOS.init();
+        </script>
+    </div>
+</body>
+
+</html>
