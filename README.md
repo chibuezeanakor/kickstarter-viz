@@ -1,6 +1,6 @@
-#kickstarter-viz
+# kickstarter-viz
 
-###Creators
+### Creators
 * [Chibueze Anakor][1]
 * [Andrew Curtis][2]
 
